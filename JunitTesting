@@ -1,0 +1,20 @@
+Question: When the project is using Spring 4.3  and Hibernate 5.2, how to write the JUnit test without 
+bounded with concrete DB closely. In other words, How to mock DB in JUnit test for service method. 
+If not possible give the reason else list cases for the different scenario.
+
+Ans: If we follow Principles of Object Oriented Programming, and use the Spring Framework for Dependency Injection then
+we can using mocking for unit testing. We can use Mocinto, a mocking framework for this purpose.
+Eg: If we have a InventoryService.java class which need to test and assume this class dependency on another class Inventory.java
+whose implementations we are not aware of. In this case we can just mock Inventory.class and test if our InventorySerrvice.java is working 
+as expected or not
+
+	@Before
+    public void setupMock() {
+        inventory = mock(Inventory.class);
+       
+    }
+    @Test
+    public void testMockCreation(){
+        assertNotNull(product);
+       
+    } 
