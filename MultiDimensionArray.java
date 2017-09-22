@@ -28,16 +28,18 @@ public class MultiDimensionArray {
 
 		// Loop through all the elements
 		for (int i = 0; i < totalElements; i++) {
+			sum = sum + getValue(currIndex[n]);
 			for (int j = 0; j < n; j++) {
+				currIndex[j]++;// We increment
 				// when ever we reach max in a dimension reset it to 0
 				if (currIndex[j] >= lengthOfDeminsion[j]) {
 					currIndex[j] = 0;
 				} else {
-					currIndex[j]++;// We incremented so just break
+					
 					break;
 				}
 			}
-			sum = sum + getValue(currIndex[n]);
+			
 		}
 		return sum;
 	}
